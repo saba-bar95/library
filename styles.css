@@ -1,0 +1,122 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 40px 20px;
+  background-color: #f8fafc;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ================= HEADER   */
+
+.library-container {
+  display: flex;
+  gap: 40px;
+  flex-direction: column;
+}
+
+.library-container .library-header h1 {
+  letter-spacing: 2px;
+  padding-bottom: 15px;
+  text-align: center;
+  color: #1e293b;
+  font-size: 35px;
+  border-bottom: 5px solid #fdba74;
+  border-radius: 50%;
+}
+
+.library-container .library-header p {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.library-container .library-header p svg {
+  height: 25px;
+  width: auto;
+  cursor: pointer;
+}
+
+.library-container .library-header p svg:hover {
+  fill: #f87171;
+  transform: scale(1.2);
+}
+
+/* ================= BOOK-ADDER FORM   */
+
+.library-container .book-adder {
+  padding: 0 20px;
+  width: 80%;
+  margin: auto;
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.library-container .book-adder div {
+  display: grid;
+  grid-auto-flow: row;
+  gap: 10px;
+  align-self: center;
+}
+
+.library-container .book-adder div:nth-child(-n + 2) {
+  flex: 1;
+}
+
+.library-container .book-adder div label {
+  letter-spacing: 0.5px;
+}
+
+.library-container .book-adder div label span {
+  color: red;
+  font-weight: 700;
+}
+
+.library-container .book-adder div input {
+  border: 1.5px solid #94a3b8;
+  border-radius: 5px;
+  height: 30px;
+  outline: none;
+  font-size: 15px;
+  color: #1e293b;
+  padding: 10px;
+}
+
+.library-container .book-adder div:nth-child(3) input {
+  width: 100px;
+}
+
+.library-container .book-adder div input:focus {
+  border: 1px solid #1e293b;
+}
+
+.library-container .book-adder div select {
+  padding: 5px;
+}
+
+.library-container .book-adder div:not(:nth-child(3)) input:valid {
+  border: 1px solid #4d7c0f;
+}
+
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 500px));
+}
+
+.books-grid .books-item {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
