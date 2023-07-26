@@ -26,32 +26,43 @@
         </p>
       </div>
       <div class="book-adder hidden">
-        <div>
-          <label for="title">Book <span>*</span></label>
-          <input type="text" id="title" required />
-        </div>
-        <div>
-          <label for="author">Author <span>*</span></label>
-          <input type="text" id="Author" required />
-        </div>
-        <div>
-          <label for="pages">Pages</label>
-          <input type="number" id="pages" min="0" />
-        </div>
-        <div>
-          <label for="status">Status</label>
-          <select name="status" id="status">
-            <option value="read">Read</option>
-            <option value="not-read">Not read</option>
-          </select>
+        <form action="">
+          <div>
+            <label for="title">Book <span>*</span></label>
+            <input type="text" id="title" required />
+          </div>
+          <div>
+            <label for="author">Author <span>*</span></label>
+            <input type="text" id="author" required />
+          </div>
+          <div>
+            <label for="read">Status</label>
+            <select name="read" id="read">
+              <option value="Read">Read</option>
+              <option value="Not read" selected>Not read</option>
+            </select>
+          </div>
+          <div class="pages-div hidden">
+            <label for="pages">Pages</label>
+            <input type="number" id="pages" max="2000" step="15" min="0" />
+          </div>
+        </form>
+        <div class="btn-div">
+          <button type="submit" class="add-btn">Add Book</button>
         </div>
       </div>
-      <div class="books-grid">
-        <div class="books-item hidden">
-          <h1 class="title">Name</h1>
-          <p class="author"></p>
-          <p class="pages"></p>
-        </div>
+      <div class="books-library hidden">
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Author</th>
+              <th>Status</th>
+              <th>Pages</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
       </div>
     </div>
   </body>

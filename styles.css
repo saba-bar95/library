@@ -15,11 +15,16 @@ body {
   display: none !important;
 }
 
+.not-read {
+  color: #ef4444;
+  font-weight: 600;
+}
+
 /* ================= HEADER   */
 
 .library-container {
   display: flex;
-  gap: 40px;
+  gap: 60px;
   flex-direction: column;
 }
 
@@ -28,7 +33,6 @@ body {
   padding-bottom: 15px;
   text-align: center;
   color: #1e293b;
-  font-size: 35px;
   border-bottom: 5px solid #fdba74;
   border-radius: 50%;
 }
@@ -43,8 +47,6 @@ body {
 
 .library-container .library-header p svg {
   height: 25px;
-  width: auto;
-  cursor: pointer;
 }
 
 .library-container .library-header p svg:hover {
@@ -55,68 +57,122 @@ body {
 /* ================= BOOK-ADDER FORM   */
 
 .library-container .book-adder {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.library-container .book-adder form {
   padding: 0 20px;
   width: 80%;
   margin: auto;
   display: flex;
   gap: 30px;
-  flex-wrap: wrap;
-  justify-content: space-around;
 }
 
-.library-container .book-adder div {
+.library-container .book-adder form div {
   display: grid;
-  grid-auto-flow: row;
   gap: 10px;
-  align-self: center;
 }
 
-.library-container .book-adder div:nth-child(-n + 2) {
+.library-container .book-adder form div:nth-child(-n + 2) {
   flex: 1;
 }
 
-.library-container .book-adder div label {
+.library-container .book-adder form div label {
   letter-spacing: 0.5px;
+  font-size: 0.9rem;
 }
 
-.library-container .book-adder div label span {
+.library-container .book-adder form div label span {
   color: red;
   font-weight: 700;
 }
 
-.library-container .book-adder div input {
+.library-container .book-adder form div input {
   border: 1.5px solid #94a3b8;
   border-radius: 5px;
   height: 30px;
   outline: none;
-  font-size: 15px;
   color: #1e293b;
   padding: 10px;
+  font-size: 0.8rem;
 }
 
-.library-container .book-adder div:nth-child(3) input {
+.library-container .book-adder form div:nth-child(4) input {
   width: 100px;
 }
 
-.library-container .book-adder div input:focus {
+.library-container .book-adder form div input:focus {
   border: 1px solid #1e293b;
 }
 
-.library-container .book-adder div select {
+.library-container .book-adder form div select {
+  font-family: inherit;
+  font-size: 0.8rem;
   padding: 5px;
+  color: #1e293b;
+  background-color: #eff6ff;
+  border: 1.5px solid #94a3b8;
+  border-radius: 5px;
+  outline: none;
+  height: 30px;
 }
 
-.library-container .book-adder div:not(:nth-child(3)) input:valid {
+.library-container .book-adder form div:not(:nth-child(4)) input:valid {
   border: 1px solid #4d7c0f;
 }
 
-.books-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 500px));
+.library-container .book-adder .btn-div {
+  margin: auto;
 }
 
-.books-grid .books-item {
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-items: center;
+.library-container .book-adder div button {
+  background-color: #f5d0fe;
+  width: 150px;
+  outline: none;
+  padding: 10px;
+  font-family: inherit;
+  font-size: 1rem;
+  border: 1.5px solid #94a3b8;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #334155;
+  font-weight: 600;
+}
+
+.library-container .book-adder div button:hover {
+  transition-duration: 0.5s;
+  translate: 3px;
+  scale: 1.1;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* ================= BOOKS-LIBRARY    */
+
+.books-library table {
+  border-collapse: collapse;
+  letter-spacing: 0.5px;
+  font-size: 0.9rem;
+  margin: auto;
+  width: 80%;
+}
+
+.books-library table thead {
+  border-bottom: 1px solid #94a3b8;
+  font-size: 1rem;
+}
+
+.books-library table thead th {
+  text-align: start;
+}
+
+.books-library table td,
+.books-library table th {
+  padding: 10px 20px;
+}
+
+.books-library table tr:not(:last-child) {
+  border-bottom: 1px solid #94a3b8;
 }
