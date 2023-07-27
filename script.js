@@ -1,6 +1,7 @@
 // ================= BUTTONS
 const newBookBtn = document.querySelector(".new-book-btn");
 const addBtn = document.querySelector(".add-btn");
+let statusData;
 
 // ================= DIVS & INPUTS
 const bookAdderDiv = document.querySelector(".book-adder");
@@ -24,16 +25,45 @@ function Book(title, author, read, pages) {
   this.pages = pages;
 }
 
-function displayBook(obj) {
+function displayBook(arr) {
   const tr = document.createElement("tr");
   tBody.prepend(tr);
-  for (let [key, value] of Object.entries(obj)) {
-    const td = document.createElement("td");
-    if (value === "Not read") td.classList.add("not-read");
-    if (value === "0") return;
-    td.textContent = value;
-    tr.appendChild(td);
-  }
+  arr.forEach((el, i) => {
+    if (arr.length - 1 !== i) return;
+    else {
+      for (let [key, value] of Object.entries(el)) {
+        const td = document.createElement("td");
+        if (value === "Not read") td.classList.add("not-read");
+        if (value === "Not read" || value === "Read")
+          td.classList.add("read-btn");
+        if (value === "0") td.textContent = "";
+        else td.textContent = value;
+        tr.appendChild(td);
+      }
+    }
+  });
+  // Add functionality to not-read/read table datas
+  statusData = document.querySelectorAll(".read-btn");
+  statusData.forEach((el) => {
+    el.addEventListener("click", function () {
+      console.log(el);
+      // if (el.classList.contains("not-read")) {
+      //   console.log("s");
+      //   el.classList.remove("not-read");
+      //   el.textContent = "Read";
+      //   const pageNum = prompt("How many pages have you read?");
+      //   el.nextElementSibling.textContent = pageNum;
+      //   return;
+      // }
+
+      // if (!el.classList.contains("not-read")) {
+      //   console.log("ss");
+      //   el.classList.add("not-read");
+      //   el.textContent = "Not read";
+      //   el.nextElementSibling.textContent = "";
+      // }
+    });
+  });
 }
 
 // ================= EVENT LISTENERS
@@ -41,7 +71,10 @@ function displayBook(obj) {
 addBtn.addEventListener("click", function (e) {
   e.preventDefault();
   if (!title.validity.valid || !author.validity.valid) return;
-  if (read.value === "Read" && pages.value === "0") return;
+  if (read.value === "Read" && pages.value === "0") {
+    alert("Pages number must be higher than 0");
+    return;
+  }
   if (title.validity.valid && author.validity.valid) {
     const newBookObject = new Book(
       title.value,
@@ -50,7 +83,7 @@ addBtn.addEventListener("click", function (e) {
       pages.value
     );
     myLibrary.push(newBookObject);
-    displayBook(newBookObject);
+    displayBook(myLibrary);
     if (booksLibrary.classList.contains("hidden")) {
       booksLibrary.classList.remove("hidden");
     }
