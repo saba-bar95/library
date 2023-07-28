@@ -4,7 +4,7 @@
 
 #### Object Constructors were used for the first time in my JavaScript code.
 
-#### You can add a book to your online library using this project. After adding something, you can change its status from read to unread (and vice versa), or you can remove it entirely.
+#### You can add a book to your online library using this project. After adding something, you can change its status from read to unread (and vice versa) or you can remove it entirely.
 
 ### Build with
 
