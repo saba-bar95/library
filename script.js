@@ -63,13 +63,21 @@ function displayBook(arr) {
       for (let [key, value] of Object.entries(el)) {
         const td = document.createElement("td");
         if (value === "Not read") td.classList.add("not-read");
-        if (value === "Not read" || value === "Read")
+        if (value === "Not read" || value === "Read") {
           td.classList.add("read-btn");
+        }
         if (
-          value === "Not read" ||
-          (value === "Read" && Object.getPrototypeOf(arr[i]) === Book.prototype)
-        )
+          (value === "Not read" || value === "Read") &&
+          Object.getPrototypeOf(arr[i]) === Book.prototype
+        ) {
           td.classList.add("new-btn");
+        }
+        if (
+          (value === "Not read" || value === "Read") &&
+          Object.getPrototypeOf(arr[i]) !== Book.prototype
+        ) {
+          td.classList.add("default-btn");
+        }
         if (value === "0") td.textContent = "";
         else td.textContent = value;
         tr.appendChild(td);
@@ -93,6 +101,8 @@ function displayBook(arr) {
 function statusDataChange(arr) {
   arr.forEach((el, i) => {
     if (el !== arr[0] && arr[i].classList.contains("new-btn")) return;
+    if (arr[i].classList.contains("default-btn") && myLibrary.length > 0)
+      return;
     if (
       arr.length > defaultLibrary.length &&
       !arr[i].classList.contains("new-btn")
@@ -101,6 +111,7 @@ function statusDataChange(arr) {
     else {
       el.addEventListener("click", function () {
         if (el.classList.contains("not-read")) {
+          console.log("s");
           el.classList.remove("not-read");
           el.textContent = "Read";
           let pageNum = +prompt("How many pages have you read?");
@@ -113,6 +124,7 @@ function statusDataChange(arr) {
           return;
         }
         if (!el.classList.contains("not-read")) {
+          console.log("ss");
           el.classList.add("not-read");
           el.textContent = "Not read";
           el.nextElementSibling.textContent = "";
