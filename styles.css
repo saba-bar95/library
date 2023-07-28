@@ -175,3 +175,22 @@ body {
 .books-library table tr:not(:last-child) {
   border-bottom: 1px solid #94a3b8;
 }
+
+.books-library table .read-btn:hover {
+  cursor: pointer;
+}
+
+.books-library table .remove-btn {
+  background-color: #f87171;
+  padding: 8px 13px;
+  border: none;
+  border-radius: 3px;
+  text-transform: uppercase;
+  font-family: inherit;
+}
+
+.books-library table .remove-btn:hover {
+  cursor: pointer;
+  scale: 1.1;
+  transition-duration: 0.3s;
+}
