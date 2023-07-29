@@ -111,7 +111,6 @@ function statusDataChange(arr) {
     else {
       el.addEventListener("click", function () {
         if (el.classList.contains("not-read")) {
-          console.log("s");
           el.classList.remove("not-read");
           el.textContent = "Read";
           let pageNum = +prompt("How many pages have you read?");
@@ -124,7 +123,6 @@ function statusDataChange(arr) {
           return;
         }
         if (!el.classList.contains("not-read")) {
-          console.log("ss");
           el.classList.add("not-read");
           el.textContent = "Not read";
           el.nextElementSibling.textContent = "";
