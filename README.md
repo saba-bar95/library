@@ -17,4 +17,3 @@ You can add a book to your online library with different characteristics. After 
 ### Author
 
 - [GitHub](https://github.com/saba-bar95)
-- [Coderbyte](https://coderbyte.com/profile/gegewp)
