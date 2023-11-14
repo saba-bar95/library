@@ -2,8 +2,6 @@
 
 ### This project is done as part of the [Odin course](https://www.theodinproject.com/dashboard)
 
-Object Constructors were used for the first time in my JavaScript code.
-
 You can add a book to your online library with different characteristics. After adding something, you can change its status from read to unread (and vice versa) or you can remove it entirely.
 
 ### Build with
